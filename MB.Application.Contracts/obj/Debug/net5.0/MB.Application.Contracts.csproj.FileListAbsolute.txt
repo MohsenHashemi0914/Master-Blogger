@@ -1,0 +1,12 @@
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\bin\Debug\net5.0\MB.Application.Contracts.deps.json
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\bin\Debug\net5.0\MB.Application.Contracts.dll
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\bin\Debug\net5.0\ref\MB.Application.Contracts.dll
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\bin\Debug\net5.0\MB.Application.Contracts.pdb
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\obj\Debug\net5.0\MB.Application.Contracts.csproj.AssemblyReference.cache
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\obj\Debug\net5.0\MB.Application.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\obj\Debug\net5.0\MB.Application.Contracts.AssemblyInfoInputs.cache
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\obj\Debug\net5.0\MB.Application.Contracts.AssemblyInfo.cs
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\obj\Debug\net5.0\MB.Application.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\obj\Debug\net5.0\MB.Application.Contracts.dll
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\obj\Debug\net5.0\ref\MB.Application.Contracts.dll
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application.Contracts\obj\Debug\net5.0\MB.Application.Contracts.pdb
