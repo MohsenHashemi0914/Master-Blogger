@@ -1,4 +1,9 @@
-﻿using MB.Domain.ArticleAgg;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using MB.Application.Contracts.Article;
+using MB.Domain.ArticleAgg;
+using Microsoft.EntityFrameworkCore;
 
 namespace MB.Infrastructure.EFCore.Repositories
 {
@@ -15,6 +20,17 @@ namespace MB.Infrastructure.EFCore.Repositories
 
         #endregion
 
-
+        public List<ArticleViewModel> GetList()
+        {
+            return _context.Articles.Include(x => x.ArticleCategory)
+                .Select(x => new ArticleViewModel
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    IsDeleted = x.IsDeleted,
+                    CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture),
+                    ArticleCategory = x.ArticleCategory.Title
+                }).ToList();
+        }
     }
 }
