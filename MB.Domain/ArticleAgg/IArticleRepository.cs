@@ -5,6 +5,8 @@ namespace MB.Domain.ArticleAgg
 {
     public interface IArticleRepository
     {
+        void SaveChanges();
+        void Add(Article entity);
         List<ArticleViewModel> GetList();
     }
 }

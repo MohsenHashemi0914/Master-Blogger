@@ -19,7 +19,11 @@ namespace MB.Application.Article
 
         public void Create(CreateArticle command)
         {
-            throw new System.NotImplementedException();
+            var article = new Domain.ArticleAgg.Article(command.Title, command.ShortDescription,
+                command.Image, command.Content, command.ArticleCategoryId);
+
+            _articleRepository.Add(article);
+            _articleRepository.SaveChanges();
         }
 
         public void Edit(EditArticle command)

@@ -20,6 +20,16 @@ namespace MB.Infrastructure.EFCore.Repositories
 
         #endregion
 
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
+        public void Add(Article entity)
+        {
+            _context.Add(entity);
+        }
+
         public List<ArticleViewModel> GetList()
         {
             return _context.Articles.Include(x => x.ArticleCategory)
