@@ -2,6 +2,6 @@
 {
     public class EditArticle : CreateArticle
     {
-        public long ArticleCategoryId { get; set; }
+        public long Id { get; set; }
     }
 }

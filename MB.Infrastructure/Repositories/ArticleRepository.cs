@@ -30,6 +30,11 @@ namespace MB.Infrastructure.EFCore.Repositories
             _context.Add(entity);
         }
 
+        public Article GetBy(long id)
+        {
+            return _context.Articles.Find(id);
+        }
+
         public List<ArticleViewModel> GetList()
         {
             return _context.Articles.Include(x => x.ArticleCategory)

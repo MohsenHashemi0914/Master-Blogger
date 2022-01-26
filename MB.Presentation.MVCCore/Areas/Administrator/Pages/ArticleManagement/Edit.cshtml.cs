@@ -8,27 +8,34 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MB.Presentation.MVCCore.Areas.Administrator.Pages.ArticleManagement
 {
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
+        [BindProperty] public EditArticle Article { get; set; }
         public List<SelectListItem> ArticleCategories { get; set; }
-        private readonly IArticleCategoryApplication _articleCategoryApplication;
-        private readonly IArticleApplication _articleApplication;
 
-        public CreateModel(IArticleCategoryApplication articleCategoryApplication, IArticleApplication articleApplication)
+        #region constructor
+
+        private readonly IArticleApplication _articleApplication;
+        private readonly IArticleCategoryApplication _articleCategoryApplication;
+
+        public EditModel(IArticleApplication articleApplication, IArticleCategoryApplication articleCategoryApplication)
         {
-            _articleCategoryApplication = articleCategoryApplication;
             _articleApplication = articleApplication;
+            _articleCategoryApplication = articleCategoryApplication;
         }
 
-        public void OnGet()
+        #endregion
+
+        public void OnGet(long id)
         {
+            Article = _articleApplication.GetBy(id);
             ArticleCategories = _articleCategoryApplication.List()
                 .Select(x => new SelectListItem(x.Title, x.Id.ToString())).ToList();
         }
 
-        public IActionResult OnPost(CreateArticle command)
+        public IActionResult OnPost()
         {
-            _articleApplication.Create(command);
+            _articleApplication.Edit(Article);
             return RedirectToPage("./List");
         }
     }
