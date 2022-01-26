@@ -39,6 +39,24 @@ namespace MB.Application.Article
             _articleRepository.SaveChanges();
         }
 
+        public void Remove(long id)
+        {
+            var article = _articleRepository.GetBy(id);
+            if (article == null) return;
+
+            article.Remove();
+            _articleRepository.SaveChanges();
+        }
+
+        public void Activate(long id)
+        {
+            var article = _articleRepository.GetBy(id);
+            if (article == null) return;
+
+            article.Restore();
+            _articleRepository.SaveChanges();
+        }
+
         public EditArticle GetBy(long id)
         {
             var article = _articleRepository.GetBy(id);

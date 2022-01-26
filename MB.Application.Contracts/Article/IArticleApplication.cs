@@ -6,6 +6,8 @@ namespace MB.Application.Contracts.Article
     {
         void Create(CreateArticle command);
         void Edit(EditArticle command);
+        void Remove(long id);
+        void Activate(long id);
         EditArticle GetBy(long id);
         List<ArticleViewModel> GetList();
     }
