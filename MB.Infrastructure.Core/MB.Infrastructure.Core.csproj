@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MB.Application\MB.Application.csproj" />
+    <ProjectReference Include="..\MB.Infrastructure.Query\MB.Infrastructure.Query.csproj" />
     <ProjectReference Include="..\MB.Infrastructure\MB.Infrastructure.EFCore.csproj" />
   </ItemGroup>
 
