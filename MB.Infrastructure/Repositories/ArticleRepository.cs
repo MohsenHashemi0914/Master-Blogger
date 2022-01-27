@@ -30,6 +30,12 @@ namespace MB.Infrastructure.EFCore.Repositories
             _context.Add(entity);
         }
 
+        public bool IsArticleTitleExist(string title)
+        {
+            return _context.Articles
+                .Any(x => x.Title.ToUpper().Trim() == title.ToUpper().Trim());
+        }
+
         public Article GetBy(long id)
         {
             return _context.Articles.Find(id);

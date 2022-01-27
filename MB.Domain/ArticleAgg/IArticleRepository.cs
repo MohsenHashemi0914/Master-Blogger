@@ -7,6 +7,7 @@ namespace MB.Domain.ArticleAgg
     {
         void SaveChanges();
         void Add(Article entity);
+        bool IsArticleTitleExist(string title);
         Article GetBy(long id);
         List<ArticleViewModel> GetList();
     }

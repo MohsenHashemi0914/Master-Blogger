@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MB.Application.Contracts.Article;
 using MB.Domain.ArticleAgg;
+using MB.Domain.ArticleAgg.Services;
 
 namespace MB.Application.Article
 {
@@ -9,10 +10,11 @@ namespace MB.Application.Article
         #region constructor
 
         private readonly IArticleRepository _articleRepository;
-
-        public ArticleApplication(IArticleRepository articleRepository)
+        private readonly IArticleValidatorService _articleValidatorService;
+        public ArticleApplication(IArticleRepository articleRepository, IArticleValidatorService articleValidatorService)
         {
             _articleRepository = articleRepository;
+            _articleValidatorService = articleValidatorService;
         }
 
         #endregion
@@ -20,7 +22,7 @@ namespace MB.Application.Article
         public void Create(CreateArticle command)
         {
             var article = new Domain.ArticleAgg.Article(command.Title, command.ShortDescription,
-                command.Image, command.Content, command.ArticleCategoryId);
+                command.Image, command.Content, command.ArticleCategoryId, _articleValidatorService);
 
             _articleRepository.Add(article);
             _articleRepository.SaveChanges();
