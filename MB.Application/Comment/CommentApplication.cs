@@ -16,6 +16,15 @@ namespace MB.Application.Comment
 
         #endregion
 
-
+        public void Add(AddComment command)
+        {
+            var comment = new Domain.CommentAgg.Comment(command.Name,
+                command.Message,
+                command.Email,
+                command.ArticleId);
+           
+            _commentRepository.Add(comment);
+            _commentRepository.SaveChanges();
+        }
     }
 }
