@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MB.Infrastructure.Query
+﻿namespace MB.Infrastructure.Query
 {
     public class ArticleQueryView
     {
