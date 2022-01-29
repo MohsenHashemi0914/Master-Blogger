@@ -28,5 +28,20 @@ namespace MB.Infrastructure.Query
                     Image = x.Image
                 }).ToList();
         }
+
+        public ArticleQueryView GerArticleBy(long id)
+        {
+            return _context.Articles.Include(x => x.ArticleCategory)
+                .Select(x => new ArticleQueryView
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    ShortDescription = x.ShortDescription,
+                    ArticleCategory = x.ArticleCategory.Title,
+                    CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture),
+                    Image = x.Image,
+                    Content = x.Content
+                }).FirstOrDefault(x => x.Id == id);
+        }
     }
 }
