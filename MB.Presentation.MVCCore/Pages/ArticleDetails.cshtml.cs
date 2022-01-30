@@ -24,7 +24,7 @@ namespace MB.Presentation.MVCCore.Pages
 
         public void OnGet(long id)
         {
-            Article = _articleQuery.GerArticleBy(id);
+            Article = _articleQuery.GetArticleBy(id);
         }
 
         public IActionResult OnPost(AddComment command)
