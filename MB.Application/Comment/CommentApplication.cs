@@ -1,4 +1,5 @@
-﻿using MB.Application.Contracts.Comment;
+﻿using System.Collections.Generic;
+using MB.Application.Contracts.Comment;
 using MB.Domain.CommentAgg;
 
 namespace MB.Application.Comment
@@ -25,6 +26,32 @@ namespace MB.Application.Comment
            
             _commentRepository.Add(comment);
             _commentRepository.SaveChanges();
+        }
+
+        public void Confirm(long id)
+        {
+            var comment = _commentRepository.GetCommentBy(id);
+            if (comment == null)
+                return;
+
+            comment.Confirm();
+            _commentRepository.SaveChanges();
+
+        }
+
+        public void Cancel(long id)
+        {
+            var comment = _commentRepository.GetCommentBy(id);
+            if (comment == null)
+                return;
+
+            comment.Cancel();
+            _commentRepository.SaveChanges();
+        }
+
+        public List<CommentViewModel> GetList()
+        {
+            return _commentRepository.GetList();
         }
     }
 }

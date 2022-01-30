@@ -91,3 +91,4 @@ C:\Users\mohsen\source\repos\MasterBlogger\MB.Presentation.MVCCore\obj\Debug\net
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Presentation.MVCCore\obj\Debug\net5.0\Razor\Areas\Administrator\Pages\ArticleManagement\Edit.cshtml.g.cs
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Presentation.MVCCore\bin\Debug\net5.0\MB.Infrastructure.Query.dll
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Presentation.MVCCore\bin\Debug\net5.0\MB.Infrastructure.Query.pdb
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Presentation.MVCCore\obj\Debug\net5.0\Razor\Areas\Administrator\Pages\CommentManagement\List.cshtml.g.cs
