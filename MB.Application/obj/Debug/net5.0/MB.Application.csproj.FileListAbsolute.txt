@@ -15,3 +15,5 @@ C:\Users\mohsen\source\repos\MasterBlogger\MB.Application\obj\Debug\net5.0\ref\M
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Application\obj\Debug\net5.0\MB.Application.pdb
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Application\bin\Debug\net5.0\MB.Domain.dll
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Application\bin\Debug\net5.0\MB.Domain.pdb
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application\bin\Debug\net5.0\Framework.dll
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Application\bin\Debug\net5.0\Framework.pdb

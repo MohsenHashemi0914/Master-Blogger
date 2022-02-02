@@ -1,4 +1,5 @@
-﻿using MB.Application.Article;
+﻿using Framework.Infrastructure;
+using MB.Application.Article;
 using MB.Application.ArticleCategory;
 using MB.Application.Comment;
 using MB.Application.Contracts.Article;
@@ -14,6 +15,7 @@ using MB.Infrastructure.EFCore.Repositories;
 using MB.Infrastructure.Query;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using UnitOfWorkEf = MB.Infrastructure.EFCore.UnitOfWorkEf;
 
 namespace MB.Infrastructure.Core
 {
@@ -33,6 +35,7 @@ namespace MB.Infrastructure.Core
             services.AddTransient<ICommentApplication, CommentApplication>();
 
             services.AddTransient<IArticleQuery, ArticleQuery>();
+            services.AddTransient<IUnitOfWork, UnitOfWorkEf>();
 
             services.AddDbContext<MasterBloggerContext>(options =>
                 options.UseSqlServer(connectionString));

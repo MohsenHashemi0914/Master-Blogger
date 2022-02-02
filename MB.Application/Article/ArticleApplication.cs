@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Framework.Infrastructure;
 using MB.Application.Contracts.Article;
 using MB.Domain.ArticleAgg;
 using MB.Domain.ArticleAgg.Services;
@@ -9,27 +10,31 @@ namespace MB.Application.Article
     {
         #region constructor
 
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IArticleRepository _articleRepository;
         private readonly IArticleValidatorService _articleValidatorService;
-        public ArticleApplication(IArticleRepository articleRepository, IArticleValidatorService articleValidatorService)
+        public ArticleApplication(IArticleRepository articleRepository, IArticleValidatorService articleValidatorService, IUnitOfWork unitOfWork)
         {
             _articleRepository = articleRepository;
             _articleValidatorService = articleValidatorService;
+            _unitOfWork = unitOfWork;
         }
 
         #endregion
 
         public void Create(CreateArticle command)
         {
+            _unitOfWork.BeginTran();
             var article = new Domain.ArticleAgg.Article(command.Title, command.ShortDescription,
                 command.Image, command.Content, command.ArticleCategoryId, _articleValidatorService);
 
             _articleRepository.Add(article);
-            _articleRepository.SaveChanges();
+            _unitOfWork.CommitTran();
         }
 
         public void Edit(EditArticle command)
         {
+            _unitOfWork.BeginTran();
             var article = _articleRepository.GetBy(command.Id);
             if (article == null)
                 return;
@@ -38,25 +43,27 @@ namespace MB.Application.Article
                 command.Image, command.Content,
                 command.ArticleCategoryId);
 
-            _articleRepository.SaveChanges();
+            _unitOfWork.CommitTran();
         }
 
         public void Remove(long id)
         {
+            _unitOfWork.BeginTran();
             var article = _articleRepository.GetBy(id);
             if (article == null) return;
 
             article.Remove();
-            _articleRepository.SaveChanges();
+            _unitOfWork.CommitTran();
         }
 
         public void Activate(long id)
         {
+            _unitOfWork.BeginTran();
             var article = _articleRepository.GetBy(id);
             if (article == null) return;
 
             article.Restore();
-            _articleRepository.SaveChanges();
+            _unitOfWork.CommitTran();
         }
 
         public EditArticle GetBy(long id)

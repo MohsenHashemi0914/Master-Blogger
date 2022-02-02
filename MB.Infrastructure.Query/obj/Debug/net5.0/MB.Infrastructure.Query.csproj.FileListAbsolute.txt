@@ -17,3 +17,5 @@ C:\Users\mohsen\source\repos\MasterBlogger\MB.Infrastructure.Query\obj\Debug\net
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Infrastructure.Query\obj\Debug\net5.0\MB.Infrastructure.Query.dll
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Infrastructure.Query\obj\Debug\net5.0\ref\MB.Infrastructure.Query.dll
 C:\Users\mohsen\source\repos\MasterBlogger\MB.Infrastructure.Query\obj\Debug\net5.0\MB.Infrastructure.Query.pdb
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Infrastructure.Query\bin\Debug\net5.0\Framework.dll
+C:\Users\mohsen\source\repos\MasterBlogger\MB.Infrastructure.Query\bin\Debug\net5.0\Framework.pdb
