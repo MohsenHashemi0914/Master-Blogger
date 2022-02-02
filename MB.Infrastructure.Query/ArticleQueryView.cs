@@ -4,6 +4,11 @@ namespace MB.Infrastructure.Query
 {
     public class ArticleQueryView
     {
+        public ArticleQueryView()
+        {
+            Comments = new List<CommentQueryView>();
+        }
+
         public long Id { get; set; }
         public string Title { get; set; }
         public string ShortDescription { get; set; }

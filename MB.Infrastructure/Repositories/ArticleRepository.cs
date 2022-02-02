@@ -1,46 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Framework.Infrastructure;
 using MB.Application.Contracts.Article;
 using MB.Domain.ArticleAgg;
 using Microsoft.EntityFrameworkCore;
 
 namespace MB.Infrastructure.EFCore.Repositories
 {
-    public class ArticleRepository : IArticleRepository
+    public class ArticleRepository : BaseRepository<long, Article>, IArticleRepository
     {
-        #region constructor
-
         private readonly MasterBloggerContext _context;
 
-        public ArticleRepository(MasterBloggerContext context)
+        public ArticleRepository(MasterBloggerContext context) : base(context)
         {
             _context = context;
         }
-
-        #endregion
-
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-        public void Add(Article entity)
-        {
-            _context.Add(entity);
-        }
-
-        public bool IsArticleTitleExist(string title)
-        {
-            return _context.Articles
-                .Any(x => x.Title.ToUpper().Trim() == title.ToUpper().Trim());
-        }
-
-        public Article GetBy(long id)
-        {
-            return _context.Articles.Find(id);
-        }
-
+        
         public List<ArticleViewModel> GetList()
         {
             return _context.Articles.Include(x => x.ArticleCategory)

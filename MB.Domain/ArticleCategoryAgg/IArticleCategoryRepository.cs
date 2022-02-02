@@ -1,13 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Framework.Infrastructure;
 
 namespace MB.Domain.ArticleCategoryAgg
 {
-    public interface IArticleCategoryRepository
+    public interface IArticleCategoryRepository : IRepository<long, ArticleCategory>
     {
-        void SaveChanges();
-        void Add(ArticleCategory entity);
-        bool IsArticleCategoryTitleExist(string title);
-        ArticleCategory GetBy(long id);
-        List<ArticleCategory> GetAll();
     }
 }

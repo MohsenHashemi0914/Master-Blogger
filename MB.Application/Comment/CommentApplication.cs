@@ -30,7 +30,7 @@ namespace MB.Application.Comment
 
         public void Confirm(long id)
         {
-            var comment = _commentRepository.GetCommentBy(id);
+            var comment = _commentRepository.GetBy(id);
             if (comment == null)
                 return;
 
@@ -41,7 +41,7 @@ namespace MB.Application.Comment
 
         public void Cancel(long id)
         {
-            var comment = _commentRepository.GetCommentBy(id);
+            var comment = _commentRepository.GetBy(id);
             if (comment == null)
                 return;
 

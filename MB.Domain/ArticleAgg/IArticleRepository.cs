@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
+using Framework.Infrastructure;
 using MB.Application.Contracts.Article;
 
 namespace MB.Domain.ArticleAgg
 {
-    public interface IArticleRepository
+    public interface IArticleRepository : IRepository<long, Article>
     {
-        void SaveChanges();
-        void Add(Article entity);
-        bool IsArticleTitleExist(string title);
-        Article GetBy(long id);
         List<ArticleViewModel> GetList();
     }
 }

@@ -37,8 +37,7 @@ namespace MB.Application.ArticleCategory
 
         public void Create(CreateArticleCategory command)
         {
-            if (_articleCategoryRepository.IsArticleCategoryTitleExist(command.Title))
-                return;
+            if (_articleCategoryRepository.Exists(x => x.Title == command.Title)) return;
 
             var articleCategory = new Domain.ArticleCategoryAgg.ArticleCategory(command.Title, _articleCategoryValidationService);
             _articleCategoryRepository.Add(articleCategory);
@@ -47,7 +46,7 @@ namespace MB.Application.ArticleCategory
 
         public void Rename(RenameArticleCategory command)
         {
-            if (_articleCategoryRepository.IsArticleCategoryTitleExist(command.Title)) return;
+            if (_articleCategoryRepository.Exists(x => x.Title == command.Title)) return;
 
             var articleCategory = _articleCategoryRepository.GetBy(command.Id);
             if (articleCategory != null)

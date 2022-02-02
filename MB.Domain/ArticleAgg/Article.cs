@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using Framework.Domain;
 using MB.Domain.ArticleAgg.Services;
 using MB.Domain.ArticleCategoryAgg;
 using MB.Domain.CommentAgg;
 
 namespace MB.Domain.ArticleAgg
 {
-    public class Article
+    public class Article : DomainBase<long>
     {
-        public long Id { get; private set; }
         public string Title { get; private set; }
         public string ShortDescription { get; private set; }
         public string Image { get; private set; }
         public string Content { get; private set; }
         public bool IsDeleted { get; private set; }
-        public DateTime CreationDate { get; private set; }
         public long ArticleCategoryId { get; private set; }
         public ArticleCategory ArticleCategory { get; private set; }
         public ICollection<Comment> Comments { get; private set; }
@@ -23,7 +22,8 @@ namespace MB.Domain.ArticleAgg
         {
         }
 
-        public Article(string title, string shortDescription, string image, string content, long articleCategoryId, IArticleValidatorService articleValidatorService)
+        public Article(string title, string shortDescription, string image, string content, long articleCategoryId,
+            IArticleValidatorService articleValidatorService)
         {
             Validate(title, articleCategoryId);
             articleValidatorService.CheckThatThisRecordAlreadyExists(title);
@@ -34,7 +34,6 @@ namespace MB.Domain.ArticleAgg
             Content = content;
             ArticleCategoryId = articleCategoryId;
             IsDeleted = false;
-            CreationDate = DateTime.Now;
             Comments = new List<Comment>();
         }
 

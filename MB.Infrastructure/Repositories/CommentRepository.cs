@@ -1,38 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Framework.Infrastructure;
 using MB.Application.Contracts.Comment;
 using MB.Domain.CommentAgg;
 using Microsoft.EntityFrameworkCore;
 
 namespace MB.Infrastructure.EFCore.Repositories
 {
-    public class CommentRepository : ICommentRepository
+    public class CommentRepository : BaseRepository<long, Comment>, ICommentRepository
     {
-        #region constructor
-
         private readonly MasterBloggerContext _context;
 
-        public CommentRepository(MasterBloggerContext context)
+        public CommentRepository(MasterBloggerContext context) : base(context)
         {
             _context = context;
-        }
-
-        #endregion
-
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-        public void Add(Comment entity)
-        {
-            _context.Add(entity);
-        }
-
-        public Comment GetCommentBy(long id)
-        {
-            return _context.Comments.Find(id);
         }
 
         public List<CommentViewModel> GetList()

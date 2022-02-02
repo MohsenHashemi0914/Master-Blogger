@@ -1,16 +1,15 @@
 ﻿using System;
+using Framework.Domain;
 using MB.Domain.ArticleAgg;
 
 namespace MB.Domain.CommentAgg
 {
-    public class Comment
+    public class Comment : DomainBase<long>
     {
-        public long Id { get; private set; }
         public string Name { get; private set; }
         public string Message { get; private set; }
         public string Email { get; private set; }
         public int Status { get; private set; }
-        public DateTime CreationDate { get; private set; }
         public long ArticleId { get; private set; }
         public Article Article { get; private set; }
 
@@ -21,7 +20,6 @@ namespace MB.Domain.CommentAgg
             Email = email;
             ArticleId = articleId;
             Status = Statuses.New;
-            CreationDate = DateTime.Now;
         }
 
         protected Comment()
