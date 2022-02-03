@@ -57,8 +57,9 @@ namespace MB.Application.ArticleCategory
             if (articleCategory != null)
             {
                 articleCategory.Rename(command.Title);
-                _unitOfWork.CommitTran();
             }
+
+            _unitOfWork.CommitTran();
         }
 
         public void Remove(long id)
@@ -69,8 +70,9 @@ namespace MB.Application.ArticleCategory
             if (articleCategory != null)
             {
                 articleCategory.Remove();
-                _unitOfWork.CommitTran();
             }
+
+            _unitOfWork.CommitTran();
         }
 
         public void Activate(long id)

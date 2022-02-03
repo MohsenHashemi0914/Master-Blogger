@@ -1,5 +1,4 @@
 ﻿using Framework.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 
 namespace MB.Infrastructure.EFCore
 {

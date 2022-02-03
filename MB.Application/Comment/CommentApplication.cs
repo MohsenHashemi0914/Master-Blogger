@@ -23,11 +23,12 @@ namespace MB.Application.Comment
         public void Add(AddComment command)
         {
             _unitOfWork.BeginTran();
+
             var comment = new Domain.CommentAgg.Comment(command.Name,
                 command.Message,
                 command.Email,
                 command.ArticleId);
-           
+
             _commentRepository.Add(comment);
             _unitOfWork.CommitTran();
         }
